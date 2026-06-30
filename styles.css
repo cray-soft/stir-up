@@ -1,0 +1,255 @@
+:root {
+  --primary: #dc2626;
+  --primary-dark: #991b1b;
+  --background: #1e293b;
+  --surface: #334155;
+  --gold: #f59e0b;
+  --green: #3ddc84; /* Android green */
+  --white: #ffffff;
+  --gray: #94a3b8;
+  --max-width: 520px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--white);
+  background-color: var(--background);
+  overflow-x: hidden;
+  /* Dot pattern echoing the app's DotPattern background */
+  background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100dvh;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+}
+
+.screen {
+  flex: 1;
+  width: 100%;
+  max-width: min(var(--max-width), 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+  gap: 24px;
+}
+
+/* --- step switching --- */
+.step {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  animation: fade 0.35s ease;
+}
+.screen,
+.hero,
+.actions {
+  min-width: 0;
+}
+.step.is-active {
+  display: flex;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- hero --- */
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.hero > * {
+  max-width: 100%;
+}
+.flame {
+  font-size: 72px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 16px rgba(220, 38, 38, 0.5));
+}
+.title {
+  color: var(--primary);
+  font-size: clamp(44px, 15vw, 72px);
+  font-weight: 900;
+  letter-spacing: 6px;
+  text-shadow: 0 2px 24px rgba(220, 38, 38, 0.4);
+  overflow-wrap: anywhere;
+}
+.title-sm {
+  font-size: clamp(34px, 11vw, 48px);
+  letter-spacing: 3px;
+}
+.subtitle {
+  color: var(--gray);
+  font-size: 15px;
+  font-weight: 600;
+}
+.age-blocked {
+  text-align: center;
+  color: var(--gold);
+  font-size: 15px;
+  font-weight: 800;
+}
+.app-link {
+  text-decoration: none;
+  margin-top: 4px;
+}
+.tagline {
+  color: var(--gold);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.teaser {
+  color: var(--white);
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  opacity: 0.92;
+}
+
+/* --- level chips --- */
+.levels {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.chip {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+.chip-warm {
+  background: rgba(245, 158, 11, 0.18);
+  color: var(--gold);
+}
+.chip-hot {
+  background: rgba(220, 38, 38, 0.18);
+  color: #f87171;
+}
+.chip-fire {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.section-label {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+/* --- buttons --- */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.btn {
+  min-height: 58px;
+  border: none;
+  border-radius: 16px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 24px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.08s ease, opacity 0.15s ease;
+}
+.btn:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+.btn-primary {
+  background: var(--primary);
+}
+.btn-dark {
+  background: #000;
+}
+.btn-green {
+  background: var(--green);
+  color: #07301a;
+}
+.btn-icon .os-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* --- back / change links --- */
+.link-back {
+  background: none;
+  border: none;
+  color: var(--gray);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  align-self: center;
+  padding: 8px;
+}
+
+/* --- instructions image --- */
+.instructions-frame {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+#instructions-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* --- footer --- */
+.footer {
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 16px;
+  opacity: 0.7;
+}
+.flame-sm {
+  font-size: 13px;
+}
