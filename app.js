@@ -104,6 +104,7 @@ document.querySelectorAll('[data-platform]').forEach((btn) => {
     const img = document.getElementById('instructions-img');
     img.src = `images/stir-up-${platform}-instructions-${lang}.png`;
     img.alt = c.imgAlt;
+    document.getElementById('instructions-app-link').href = APP_URL;
     show('instructions');
   });
 });
