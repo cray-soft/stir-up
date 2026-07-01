@@ -14,6 +14,8 @@ const COPY = {
     levelWarm: 'Warm',
     levelHot: 'Hot',
     levelFire: 'On Fire',
+    whyNote:
+      "Because of its adult content, Stir Up isn't allowed on the App Store or Google Play. Instead, add it to your home screen — it then opens full-screen, just like an installed app.",
     installHeading: 'Add Stir Up to your home screen',
     iosButton: 'iPhone / iPad',
     androidButton: 'Android',
@@ -34,6 +36,8 @@ const COPY = {
     levelWarm: 'Tibio',
     levelHot: 'Caliente',
     levelFire: 'En Llamas',
+    whyNote:
+      'Por su contenido para adultos, Stir Up no está permitido en la App Store ni en Google Play. En su lugar, agrégalo a tu pantalla de inicio: se abrirá en pantalla completa, igual que una app instalada.',
     installHeading: 'Agrega Stir Up a tu pantalla de inicio',
     iosButton: 'iPhone / iPad',
     androidButton: 'Android',
