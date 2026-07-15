@@ -6,6 +6,12 @@
 // custom domain goes live.
 const APP_URL = 'https://stir-up.expo.app';
 
+// Carry the visitor's chosen language to the app as ?lang=xx so it opens in the
+// same language they picked here. The app reads this on web launch.
+function appUrl() {
+  return `${APP_URL}?lang=${lang}`;
+}
+
 const COPY = {
   en: {
     tagline: 'The party game that turns up the heat.',
@@ -89,7 +95,7 @@ document.querySelectorAll('[data-lang]').forEach((btn) => {
 
 // 18+ gate
 document.getElementById('age-confirm').addEventListener('click', () => {
-  document.getElementById('app-link').href = APP_URL;
+  document.getElementById('app-link').href = appUrl();
   show('teaser');
 });
 document.getElementById('age-deny').addEventListener('click', () => {
@@ -104,7 +110,7 @@ document.querySelectorAll('[data-platform]').forEach((btn) => {
     const img = document.getElementById('instructions-img');
     img.src = `images/stir-up-${platform}-instructions-${lang}.png`;
     img.alt = c.imgAlt;
-    document.getElementById('instructions-app-link').href = APP_URL;
+    document.getElementById('instructions-app-link').href = appUrl();
     show('instructions');
   });
 });
